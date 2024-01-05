@@ -28,8 +28,8 @@ public class productoControlador {
     }
 
     @RequestMapping("/insertarProducto")
-    public String insertarProducto(producto producto, Model model){
-        productoRepositorio.insertarProducto(producto);
+    public String insertarProducto(producto prod, Model model){
+        productoRepositorio.insertarProducto(prod);
         return listaProducto(model);
     }
 

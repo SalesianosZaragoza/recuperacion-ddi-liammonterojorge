@@ -12,15 +12,15 @@ import java.util.List;
 public class productoRepositorio {
 
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    private static JdbcTemplate jdbcTemplate;
 
-    public  List<producto> getTodosProducto(){
+    public static List<producto> getTodosProducto(){
         String query = "SELECT * FROM producto;";
         List<producto> listaProducto = jdbcTemplate.query(query, new productoRowMapper());
         return listaProducto;
     }
 
-    public producto getProductoPorId(int idProducto){
+    public static producto getProductoPorId(int idProducto){
         String query = "SELECT * FROM producto WHERE id = ?";
         List<producto> listaProducto = jdbcTemplate.query(query, new productoRowMapper(), idProducto);
         return (listaProducto.isEmpty())? null: listaProducto.get(0);
@@ -33,11 +33,10 @@ public class productoRepositorio {
 
     public void actualizarProducto(producto producto){
         String query = "UPDATE producto SET nombre = ?, precio = ? WHERE id = ?";
-        jdbcTemplate.update(query,
-                producto.getNombre(), producto.getPrecio(), producto.getId());
+        jdbcTemplate.update(query,producto.getNombre(), producto.getPrecio(), producto.getId());
     }
 
-    public void insertarProducto(producto producto){
+    public static void insertarProducto(producto producto){
         String query = "INSERT INTO producto (nombre, precio) VALUES (?, ?);";
         jdbcTemplate.update(query, producto.getNombre(), producto.getPrecio());
     }
