@@ -1,18 +1,19 @@
 package com.example.Cafeteria.repositorio;
 
-import com.example.Cafeteria.modelos.carrito;
+import com.example.Cafeteria.modelos.Carrito;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class carritoRowMapper implements RowMapper<carrito> {
+public class CarritoRowMapper implements RowMapper<Carrito> {
 
     @Override
-    public carrito mapRow(ResultSet rs, int rowNum) throws SQLException {
-        carrito carrito = new carrito();
+    public Carrito mapRow(ResultSet rs, int rowNum) throws SQLException {
+        Carrito carrito = new Carrito();
+        
         carrito.setId(rs.getInt("id"));
-
+        carrito.setProductos(rs.getInt("productos"));
         carrito.setTotal(rs.getDouble("total"));
 
         return carrito;

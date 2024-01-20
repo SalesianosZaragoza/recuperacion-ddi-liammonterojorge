@@ -1,16 +1,16 @@
 package com.example.Cafeteria.modelos;
 
-public class producto {
+public class Producto {
     private int id;
     private String nombre;
     private double precio;
 
-    public producto(int id, String nombre, double precio) {
+    public Producto(int id, String nombre, double precio) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
     }
-    public producto() {
+    public Producto() {
     }
 
     public int getId() {
