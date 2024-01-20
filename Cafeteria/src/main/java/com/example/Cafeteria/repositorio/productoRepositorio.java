@@ -12,7 +12,7 @@ import java.util.List;
 public class productoRepositorio {
 
     @Autowired
-    private static JdbcTemplate jdbcTemplate;
+    static JdbcTemplate jdbcTemplate;
 
     public static List<producto> getTodosProducto(){
         String query = "SELECT * FROM producto;";
