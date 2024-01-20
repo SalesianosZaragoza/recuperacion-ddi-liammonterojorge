@@ -17,7 +17,7 @@ public class ProductoControlador {
     @Autowired
     ProductoRepositorio productoRepositorio;
 
-    @RequestMapping("/listaProducto")
+    @RequestMapping("/listarProducto")
     public String listaProducto(Model model){
         List<Producto> listaProducto = productoRepositorio.getTodosProducto();
         model.addAttribute("listaProducto", listaProducto);

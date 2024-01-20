@@ -16,7 +16,7 @@ public class CarritoControlador {
     @Autowired
     CarritoRepositorio carritoRepositorio;
 
-    @RequestMapping("/listaCarrito")
+    @RequestMapping("/listarCarrito")
     public String listaCarrito(Model model) {
         List<Carrito> listaCarrito = carritoRepositorio.getTodosCarrito();
         model.addAttribute("listaCarrito", listaCarrito);
