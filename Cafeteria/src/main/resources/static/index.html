@@ -4,26 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cafeteria Manoli</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
 
 </head>
 <body>
 <div class="container">
     <h1>Bienvenido a Cafeteria Manoli</h1>
-    <p>Esta es la página de inicio. Aquí tienes algunos productos:</p>
+    <p>Esta es la página de inicio</p>
 
     <table style="border:solid 2px; border-radius: 1px;">
-        <tr>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Precio</th>
-        </tr>
-        <tr th:each="producto : ${index}">
-            <td th:text="${producto.id}"></td>
-            <td th:text="${producto.nombre}"></td>
-            <td th:text="${producto.precio}"></td>
-        </tr>
-    </table>
+      
+        
     <a th:href="@{/formInsertarProducto}"><h3>Insertar un nuevo producto</h3></a>
     <a th:href="@{/}"><h3>Volver al índice</h3></a>
     <a th:href="@{/listarProducto}"><h3>Listado de productos</h3></a>
@@ -36,3 +27,4 @@
 
 </body>
 </html>
+ 
