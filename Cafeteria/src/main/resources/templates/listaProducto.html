@@ -7,17 +7,15 @@
 </head>
 <body>
     <table>
-        <th>ID</th>
         <th>Nombre Producto</th>
         <th>Precio</th>
-        <th>Actualizar</th>
+        <th>Añadir al carrito</th>
         <th>Eliminar</th>
         <tr th:each="producto : ${listaProducto}">
-            <td th:text="${producto.id}"></td>
             <td th:text="${producto.nombre}"></td>
             <td th:text="${producto.precio}"></td>
-            <!-- <td><a th:href="@{'/modificarBreweryNew/'+${brewery.id}}"><input type="button" value="ACTUALIZAR"></a></td>
-            <td><a th:href="@{'/eliminarBreweryNew/'+${brewery.id}}"><input type="button" value="ELMIMINAR"></a></td> -->
+            <!--<td><a th:href="@{'/insertarCarrito/'+${prducto}}"><input type="button" value="ACTUALIZAR"></a></td>
+            <td><a th:href="@{'/eliminarCarrito/'+${prducto.id}}"><input type="button" value="ELMIMINAR"></a></td>-->
         </tr>
     </table>
     <a th:href="@{/}"><h3>Volver al índice</h3></a>
