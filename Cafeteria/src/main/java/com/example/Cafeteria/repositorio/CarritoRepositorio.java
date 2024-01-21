@@ -33,7 +33,7 @@ public class CarritoRepositorio {
         jdbcTemplate.update(sql, carrito.getId());
     }
 
-public void actualizarCarrito(Carrito carrito){
+    public void actualizarCarrito(Carrito carrito){
         String sql = "UPDATE carrito SET productos = ?, total = ? WHERE id = ?";
         jdbcTemplate.update(sql, carrito.getProductos(), carrito.getTotal(), carrito.getId());
     }
@@ -48,3 +48,5 @@ public void actualizarCarrito(Carrito carrito){
 
 
 }
+
+

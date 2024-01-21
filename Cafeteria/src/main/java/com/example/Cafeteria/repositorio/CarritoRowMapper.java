@@ -11,7 +11,7 @@ public class CarritoRowMapper implements RowMapper<Carrito> {
     @Override
     public Carrito mapRow(ResultSet rs, int rowNum) throws SQLException {
         Carrito carrito = new Carrito();
-        
+
         carrito.setId(rs.getInt("id"));
         carrito.setProductos(rs.getInt("productos"));
         carrito.setTotal(rs.getDouble("total"));
