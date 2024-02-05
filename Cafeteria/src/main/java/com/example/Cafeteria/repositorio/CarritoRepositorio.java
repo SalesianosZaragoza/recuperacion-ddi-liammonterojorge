@@ -43,10 +43,6 @@ public class CarritoRepositorio {
         jdbcTemplate.update(sql, carrito.getProductos(), carrito.getTotal());
     }
 
-
-
-
-
 }
 
 

@@ -6,18 +6,22 @@
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 <body>
-    <table>
+<table>
+    <tr>
+        <th>Imagen</th>
         <th>Nombre Producto</th>
         <th>Precio</th>
         <th>Añadir al carrito</th>
         <th>Eliminar</th>
-        <tr th:each="producto : ${listaProducto}">
-            <td th:text="${producto.nombre}"></td>
-            <td th:text="${producto.precio}"></td>
-            <!--<td><a th:href="@{'/insertarCarrito/'+${prducto}}"><input type="button" value="ACTUALIZAR"></a></td>
-            <td><a th:href="@{'/eliminarCarrito/'+${prducto.id}}"><input type="button" value="ELMIMINAR"></a></td>-->
-        </tr>
-    </table>
-    <a th:href="@{/}"><h3>Volver al índice</h3></a>
+    </tr>
+    <tr th:each="producto : ${listaProducto}">
+        <td><img th:src="@{'/images/' + ${producto.imagen}}" width="100" height="100"></td>
+        <td th:text="${producto.nombre}"></td>
+        <td th:text="${producto.precio}"></td>
+        <!--<td><a th:href="@{'/insertarCarrito/'+${prducto}}"><input type="button" value="ACTUALIZAR"></a></td>
+        <td><a th:href="@{'/eliminarCarrito/'+${prducto.id}}"><input type="button" value="ELIMINAR"></a></td>-->
+    </tr>
+</table>
+<a th:href="@{/}"><h3>Volver al índice</h3></a>
 </body>
 </html>

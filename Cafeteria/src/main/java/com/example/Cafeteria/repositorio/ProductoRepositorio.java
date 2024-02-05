@@ -32,13 +32,13 @@ public class ProductoRepositorio {
     }
 
     public void actualizarProducto(Producto producto){
-        String query = "UPDATE producto SET nombre = ?, precio = ? WHERE id = ?";
-        jdbcTemplate.update(query,producto.getNombre(), producto.getPrecio(), producto.getId());
+        String query = "UPDATE producto SET nombre = ?, precio = ?, imagen = ?, WHERE id = ?";
+        jdbcTemplate.update(query,producto.getNombre(), producto.getPrecio(), producto.getId(), producto.getImagen());
     }
 
     public void insertarProducto(Producto producto){
-        String query = "INSERT INTO producto (nombre, precio) VALUES (?, ?);";
-        jdbcTemplate.update(query, producto.getNombre(), producto.getPrecio());
+        String query = "INSERT INTO producto (nombre, precio, imagen) VALUES (?, ?);";
+        jdbcTemplate.update(query, producto.getNombre(), producto.getPrecio(), producto.getImagen());
     }
 
 

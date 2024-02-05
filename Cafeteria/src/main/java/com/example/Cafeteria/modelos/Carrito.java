@@ -5,6 +5,7 @@ public class Carrito {
     private int productos;
     private double total;
 
+
     public Carrito(int id, int productos, double total) {
         this.id = id;
         this.productos = productos;
