@@ -14,6 +14,7 @@
         <th>Añadir al carrito</th>
         <th>Eliminar</th>
     </tr>
+
     <tr th:each="producto : ${listaProducto}">
         <td><img th:src="@{'/images/' + ${producto.imagen}}" width="100" height="100"></td>
         <td th:text="${producto.nombre}"></td>
