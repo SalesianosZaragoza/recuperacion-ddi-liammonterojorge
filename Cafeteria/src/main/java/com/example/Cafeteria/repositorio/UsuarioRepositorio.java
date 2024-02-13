@@ -1,10 +1,9 @@
 package com.example.Cafeteria.repositorio;
 
-import com.example.Cafeteria.modelos.Producto;
 import com.example.Cafeteria.modelos.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

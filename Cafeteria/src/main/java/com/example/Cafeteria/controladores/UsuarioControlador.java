@@ -1,6 +1,5 @@
 package com.example.Cafeteria.controladores;
 
-import com.example.Cafeteria.modelos.Producto;
 import com.example.Cafeteria.modelos.Usuario;
 import com.example.Cafeteria.repositorio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +17,7 @@ public class UsuarioControlador {
 
     @RequestMapping("/listarUsuario")
     public String listaUsuario(Model model){
-        List<Usuario> listaUsuario = UsuarioRepositorio.getTodosUsuario();
+        List<Usuario> listaUsuario = usuarioRepositorio.getTodosUsuario();
         model.addAttribute("listaUsuario", listaUsuario);
         return "listaUsuario";
 
