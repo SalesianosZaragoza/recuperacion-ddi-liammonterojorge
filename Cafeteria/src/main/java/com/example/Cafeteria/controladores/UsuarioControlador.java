@@ -19,8 +19,8 @@ public class UsuarioControlador {
 
     @RequestMapping("/listarUsuario")
     public String listaUsuario(Model model){
-        List<Usuario> listaUsuario = usuarioRepositorio.getTodosUsuario();
-        model.addAttribute("listaUsuario", listaUsuario);
+        List<Usuario> lisatUser = usuarioRepositorio.getTodosUsuario();
+        model.addAttribute("listaUsuario", lisatUser);
         return "listaUsuario";
 
     }

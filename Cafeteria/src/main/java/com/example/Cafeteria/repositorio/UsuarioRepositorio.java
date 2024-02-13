@@ -11,9 +11,6 @@ import java.util.List;
 public class UsuarioRepositorio {
 
     @Autowired
-    UsuarioRepositorio usuarioRepositorio;
-
-    @Autowired
     JdbcTemplate jdbcTemplate;
 
     public List<Usuario> getTodosUsuario(){
@@ -27,12 +24,4 @@ public class UsuarioRepositorio {
         List<Usuario> listaUsuario = jdbcTemplate.query(query, new UsuarioRowMapper(), username, password);
         return (listaUsuario.isEmpty())? null: listaUsuario.get(0);
     }
-
-
-
-
-
-
-
-
 }
