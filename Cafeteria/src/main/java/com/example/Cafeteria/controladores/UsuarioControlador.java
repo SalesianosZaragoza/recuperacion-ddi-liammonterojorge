@@ -49,4 +49,6 @@ public class UsuarioControlador {
             return "redirect:/InicioSesion"; // Redirecciona de nuevo a la página de inicio de sesión
         }
     }
+
+    
 }
