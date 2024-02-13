@@ -37,7 +37,7 @@ public class ProductoRepositorio {
     }
 
     public void insertarProducto(Producto producto){
-        String query = "INSERT INTO producto (nombre, precio, imagen) VALUES (?, ?);";
+        String query = "INSERT INTO producto (nombre, precio, imagen) VALUES (?, ?, ?);";
         jdbcTemplate.update(query, producto.getNombre(), producto.getPrecio(), producto.getImagen());
     }
 
