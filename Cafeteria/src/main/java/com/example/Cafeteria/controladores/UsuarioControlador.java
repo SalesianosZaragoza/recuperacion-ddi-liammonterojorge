@@ -50,5 +50,12 @@ public class UsuarioControlador {
         }
     }
 
+    @RequestMapping("/InicioSesion")
+    public String iniciarUsuarioForm(Model model){
+        Usuario usuario = new Usuario();
+        model.addAttribute("usuario", usuario);
+        return "InicioSesion";
+    }
+
     
 }

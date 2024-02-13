@@ -24,6 +24,13 @@ public class ProductoControlador {
         return "listaProducto";
     }
 
+    @RequestMapping("/listarProductoPrivate")
+    public String listaProductoPrivate(Model model){
+        List<Producto> listaProducto = productoRepositorio.getTodosProducto();
+        model.addAttribute("listaProductoPrivate", listaProducto);
+        return "listaProductoPrivate";
+    }
+
     @RequestMapping("/formInsertarProducto")
     public String formInsertarProducto(Model model){
         Producto producto = new Producto();

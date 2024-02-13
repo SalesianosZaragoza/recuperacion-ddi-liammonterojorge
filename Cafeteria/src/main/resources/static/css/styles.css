@@ -90,14 +90,26 @@ footer {
     margin-top: 20px;
 }
 
-button {
-    background-color: #5397ec; /* Botón en tono de azul oscuro */
+button, input {
+    background-color: #1467a9; /* Botón en tono de azul oscuro */
     color: #ffffff;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-top: 20px;
+}
+
+banner {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #5397ec;
+    background-color: aliceblue;
 }
 
 @keyframes floatAnimation {

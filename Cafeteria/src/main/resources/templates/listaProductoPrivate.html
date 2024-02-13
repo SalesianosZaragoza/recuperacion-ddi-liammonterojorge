@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <banner>
+        <h1>Cafeteria Manoli</h1>
+    </banner>
     <meta charset="UTF-8">
     <title>Lista Productos</title>
     <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
 </head>
 <body>
 <table>
@@ -23,7 +27,7 @@
     </tr>
 </table>
 
-<a th:href="@{'/insertarProducto/'}"><input type="button" value="Agregar producto"></a>
+<a th:href="@{'formProducto'}"><input type="button" value="Agregar producto"></a>
 <a th:href="@{/}"><h3>Volver al índice</h3></a>
 </body>
  <footer>

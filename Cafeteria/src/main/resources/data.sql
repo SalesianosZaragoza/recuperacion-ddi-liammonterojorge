@@ -11,8 +11,6 @@ INSERT INTO Carrito (productos, total) VALUES (4, 500);
 INSERT INTO Carrito (productos, total) VALUES (2, 300);
 INSERT INTO Carrito (productos, total) VALUES (1, 200);
 
-INSERT INTO Usuario (nombre, email, password) VALUES ('Liam', 'liam@gmail.com', '1234');
-INSERT INTO Usuario (nombre, email, password) VALUES ('Montero', 'montero@gmail.com', '1234');
-INSERT INTO Usuario (nombre, email, password) VALUES ('Jorge', 'jorge@gmail.com', '1234');
-
-
+INSERT INTO Usuario (nombre, email, contraseña) VALUES ('Liam', 'liam@gmail.com', '1234');
+INSERT INTO Usuario (nombre, email, contraseña) VALUES ('Montero', 'montero@gmail.com', '1234');
+INSERT INTO Usuario (nombre, email, contraseña) VALUES ('Jorge', 'jorge@gmail.com', '1234');
