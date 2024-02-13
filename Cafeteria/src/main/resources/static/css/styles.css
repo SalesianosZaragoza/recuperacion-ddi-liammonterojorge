@@ -90,6 +90,16 @@ footer {
     margin-top: 20px;
 }
 
+button {
+    background-color: #5397ec; /* Botón en tono de azul oscuro */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
 @keyframes floatAnimation {
     0% {
         transform: translateY(0);

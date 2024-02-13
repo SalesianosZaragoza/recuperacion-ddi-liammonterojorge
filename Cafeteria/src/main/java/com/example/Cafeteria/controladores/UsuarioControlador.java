@@ -42,11 +42,11 @@ public class UsuarioControlador {
 
         if (user != null) {
             // Usuario y contraseña válidos, redirecciona a la página de inicio correspondiente
-            return "redirect:/listaProductoPrivate";
+            return "listaProductoPrivate";
         } else {
             // Usuario o contraseña incorrectos, muestra un mensaje de error
             model.addAttribute("error", "Usuario o contraseña incorrectos");
-            return "redirect:/InicioSesion"; // Redirecciona de nuevo a la página de inicio de sesión
+            return "InicioSesion"; // Redirecciona de nuevo a la página de inicio de sesión
         }
     }
 
