@@ -4,10 +4,13 @@ import com.example.Cafeteria.modelos.Carrito;
 import com.example.Cafeteria.modelos.Producto;
 import com.example.Cafeteria.repositorio.CarritoRepositorio;
 import com.example.Cafeteria.repositorio.ProductoRepositorio;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -20,6 +23,9 @@ public class CarritoControlador {
 
     @Autowired
     ProductoRepositorio productoRepositorio;
+
+    @Autowired
+    HttpSession session;
 
     @RequestMapping("/listarCarrito")
     public String listaCarrito(Model model) {
@@ -35,10 +41,11 @@ public class CarritoControlador {
         return "formCarrito";
     }
 
-    @RequestMapping("/insertarCarrito/{idProducto}")
-    public String insertarCarrito(@PathVariable String idProducto, Model model){
+
+    @PostMapping("/insertarCarrito/{idProducto}")
+    public ResponseEntity<String> insertarCarrito(@PathVariable String idProducto, Model model){
         // Obtén el Carrito actual del usuario
-        Carrito carrito = obtenerCarritoActual();
+        Carrito carrito = obtenerCarritoActual(session);
 
         // Obtén el Producto seleccionado
         Producto producto = productoRepositorio.getProductoPorId(Integer.parseInt(idProducto));
@@ -46,13 +53,16 @@ public class CarritoControlador {
         // Agrega el Producto al Carrito
         carritoRepositorio.agregarProductoAlCarrito(carrito, producto);
 
+        // Log para verificar que el producto se agregó correctamente
+        System.out.println("Producto " + producto.getNombre() + " agregado al carrito");
+
         // Actualiza el total del Carrito
         carrito.setTotal(carrito.getTotal() + producto.getPrecio());
 
         // Guarda el Carrito actualizado
         carritoRepositorio.actualizarCarrito(carrito);
 
-        return "redirect:/listarProducto"; // Redirige de nuevo a la lista de productos
+        return ResponseEntity.ok("Producto agregado al carrito");
     }
 
     @RequestMapping("/formModificarCarrito/{id}")
@@ -75,10 +85,29 @@ public class CarritoControlador {
         return "redirect:/listaCarrito";
     }
 
-    private Carrito obtenerCarritoActual() {
-        // Implementa esta función para obtener el Carrito actual del usuario
-        // Esto puede implicar buscar el Carrito en la sesión del usuario, o buscar el último Carrito creado por el usuario en la base de datos
-        return null;
+    @RequestMapping("/verCarrito")
+    public String verCarrito(Model model){
+        // Obtén el Carrito actual del usuario
+        Carrito carrito = obtenerCarritoActual(session);
+
+        // Obtén los Productos del Carrito
+        List<Producto> productos = carritoRepositorio.getProductosDelCarrito(carrito);
+
+        // Pasa los Productos a la vista
+        model.addAttribute("productos", productos);
+
+        return "verCarrito";
+    }
+
+    private Carrito obtenerCarritoActual(HttpSession session) {
+        Carrito carrito = (Carrito) session.getAttribute("carrito");
+
+        if (carrito == null) {
+            carrito = new Carrito();
+            session.setAttribute("carrito", carrito);
+        }
+
+        return carrito;
     }
 }
 

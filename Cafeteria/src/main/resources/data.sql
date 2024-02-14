@@ -6,10 +6,10 @@ INSERT INTO Producto (nombre, precio, imagen) VALUES ('Fuk Croissant', 3, 'crois
 INSERT INTO Producto (nombre, precio, imagen) VALUES ('Pan con mantequilla', 2, 'pan_con_mantequilla.jpg');
 INSERT INTO Producto (nombre, precio, imagen) VALUES ('Tortilla Española', 3, 'tortilla_espanola.jpg');
 
-INSERT INTO Carrito (productos, total) VALUES (0, 0);
-INSERT INTO Carrito (productos, total) VALUES (4, 500);
-INSERT INTO Carrito (productos, total) VALUES (2, 300);
-INSERT INTO Carrito (productos, total) VALUES (1, 200);
+INSERT INTO Carrito (total) VALUES (0);
+INSERT INTO Carrito (total) VALUES (500);
+INSERT INTO Carrito (total) VALUES (300);
+INSERT INTO Carrito (total) VALUES (200);
 
 INSERT INTO Usuario (nombre, email, contrasena) VALUES ('Liam', 'liam@gmail.com', '1234');
 INSERT INTO Usuario (nombre, email, contrasena) VALUES ('Montero', 'montero@gmail.com', '1234');

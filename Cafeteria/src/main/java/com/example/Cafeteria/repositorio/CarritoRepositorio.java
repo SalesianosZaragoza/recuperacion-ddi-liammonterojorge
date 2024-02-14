@@ -35,13 +35,18 @@ public class CarritoRepositorio {
     }
 
     public void actualizarCarrito(Carrito carrito){
-        String sql = "UPDATE carrito SET productos = ?, total = ? WHERE id = ?";
-        jdbcTemplate.update(sql, carrito.getProductos(), carrito.getTotal(), carrito.getId());
+        String sql = "UPDATE carrito SET total = ? WHERE id = ?";
+        jdbcTemplate.update(sql, carrito.getTotal(), carrito.getId());
     }
 
     public void agregarProductoAlCarrito(Carrito carrito, Producto producto){
         String sql = "INSERT INTO CARRITO_PRODUCTO (id_carrito, id_producto) VALUES (?, ?)";
         jdbcTemplate.update(sql, carrito.getId(), producto.getId());
+    }
+
+    public List<Producto> getProductosDelCarrito(Carrito carrito){
+        String sql = "SELECT * FROM PRODUCTO WHERE id IN (SELECT id_producto FROM CARRITO_PRODUCTO WHERE id_carrito = ?)";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Producto.class), carrito.getId());
     }
 }
 
