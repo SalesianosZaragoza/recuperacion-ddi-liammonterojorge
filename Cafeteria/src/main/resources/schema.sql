@@ -16,5 +16,5 @@ CREATE TABLE IF NOT EXISTS USUARIO (
                                        nombre VARCHAR(25),
                                        apellido VARCHAR(25),
                                        email VARCHAR(25),
-                                       contraseña VARCHAR(25)
+                                       contrasena VARCHAR(25)
 );

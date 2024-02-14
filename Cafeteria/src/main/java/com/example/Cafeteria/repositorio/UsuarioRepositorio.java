@@ -19,9 +19,9 @@ public class UsuarioRepositorio {
         return listaUsuario;
     }
 
-    public Usuario findByUsernameAndPassword(String username, String password) {
-        String query = "SELECT * FROM usuario WHERE username = ? AND password = ?";
-        List<Usuario> listaUsuario = jdbcTemplate.query(query, new UsuarioRowMapper(), username, password);
+    public Usuario findByUsernameAndPassword(String nombre, String contrasena) {
+        String query = "SELECT * FROM usuario WHERE nombre = ? AND contrasena = ?";
+        List<Usuario> listaUsuario = jdbcTemplate.query(query, new UsuarioRowMapper(), nombre, contrasena);
         return (listaUsuario.isEmpty())? null: listaUsuario.get(0);
     }
 }

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+
 import java.util.List;
 
 @Controller
@@ -36,9 +38,9 @@ public class UsuarioControlador {
     }
 
     @PostMapping("/InicioSesion")
-    public String login(@RequestParam String usuario, @RequestParam String contrasena, Model model) {
+    public String login(@RequestParam String usuario, @RequestParam String nombre, @RequestParam String contrasena, Model model) {
         // Consulta la base de datos para verificar las credenciales
-        Usuario user = usuarioRepositorio.findByUsernameAndPassword(usuario, contrasena);
+        Usuario user = usuarioRepositorio.findByUsernameAndPassword(nombre, contrasena);
 
         if (user != null) {
             // Usuario y contraseña válidos, redirecciona a la página de inicio correspondiente
