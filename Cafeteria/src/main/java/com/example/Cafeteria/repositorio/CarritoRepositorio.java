@@ -1,6 +1,7 @@
 package com.example.Cafeteria.repositorio;
 
 import com.example.Cafeteria.modelos.Carrito;
+import com.example.Cafeteria.modelos.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,11 +39,9 @@ public class CarritoRepositorio {
         jdbcTemplate.update(sql, carrito.getProductos(), carrito.getTotal(), carrito.getId());
     }
 
-    public void insertarCarrito(Carrito carrito){
-        String sql = "INSERT INTO carrito (productos, total) VALUES (?, ?)";
-        jdbcTemplate.update(sql, carrito.getProductos(), carrito.getTotal());
+    public void agregarProductoAlCarrito(Carrito carrito, Producto producto){
+        String sql = "INSERT INTO CARRITO_PRODUCTO (id_carrito, id_producto) VALUES (?, ?)";
+        jdbcTemplate.update(sql, carrito.getId(), producto.getId());
     }
-
 }
-
 

@@ -1,7 +1,9 @@
 package com.example.Cafeteria.controladores;
 
 import com.example.Cafeteria.modelos.Carrito;
+import com.example.Cafeteria.modelos.Producto;
 import com.example.Cafeteria.repositorio.CarritoRepositorio;
+import com.example.Cafeteria.repositorio.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +17,9 @@ public class CarritoControlador {
 
     @Autowired
     CarritoRepositorio carritoRepositorio;
+
+    @Autowired
+    ProductoRepositorio productoRepositorio;
 
     @RequestMapping("/listarCarrito")
     public String listaCarrito(Model model) {
@@ -30,10 +35,24 @@ public class CarritoControlador {
         return "formCarrito";
     }
 
-    @RequestMapping("/insertarCarrito")
-    public String insertarCarrito(Carrito car, Model model) {
-        carritoRepositorio.insertarCarrito(car);
-        return "redirect:/listaCarrito";
+    @RequestMapping("/insertarCarrito/{idProducto}")
+    public String insertarCarrito(@PathVariable String idProducto, Model model){
+        // Obtén el Carrito actual del usuario
+        Carrito carrito = obtenerCarritoActual();
+
+        // Obtén el Producto seleccionado
+        Producto producto = productoRepositorio.getProductoPorId(Integer.parseInt(idProducto));
+
+        // Agrega el Producto al Carrito
+        carritoRepositorio.agregarProductoAlCarrito(carrito, producto);
+
+        // Actualiza el total del Carrito
+        carrito.setTotal(carrito.getTotal() + producto.getPrecio());
+
+        // Guarda el Carrito actualizado
+        carritoRepositorio.actualizarCarrito(carrito);
+
+        return "redirect:/listarProducto"; // Redirige de nuevo a la lista de productos
     }
 
     @RequestMapping("/formModificarCarrito/{id}")
@@ -54,6 +73,12 @@ public class CarritoControlador {
     public String actualizarCarrito(Carrito carrito, Model model) {
         carritoRepositorio.actualizarCarrito(carrito);
         return "redirect:/listaCarrito";
+    }
+
+    private Carrito obtenerCarritoActual() {
+        // Implementa esta función para obtener el Carrito actual del usuario
+        // Esto puede implicar buscar el Carrito en la sesión del usuario, o buscar el último Carrito creado por el usuario en la base de datos
+        return null;
     }
 }
 

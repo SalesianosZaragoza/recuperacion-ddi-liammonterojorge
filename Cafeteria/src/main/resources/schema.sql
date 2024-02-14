@@ -7,8 +7,14 @@ CREATE TABLE IF NOT EXISTS PRODUCTO (
 
 CREATE TABLE IF NOT EXISTS CARRITO (
                                        id INT AUTO_INCREMENT PRIMARY KEY,
-                                       productos INT,
-                                       total INT
+                                       total DOUBLE
+);
+
+CREATE TABLE IF NOT EXISTS CARRITO_PRODUCTO (
+                                                id_carrito INT,
+                                                id_producto INT,
+                                                FOREIGN KEY (id_carrito) REFERENCES CARRITO(id),
+                                                FOREIGN KEY (id_producto) REFERENCES PRODUCTO(id)
 );
 
 CREATE TABLE IF NOT EXISTS USUARIO (
