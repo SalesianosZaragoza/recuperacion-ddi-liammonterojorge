@@ -35,11 +35,11 @@ public class Usuario {
         this.apellido = apellido;
     }
 
-    public String getCorreo() {
+    public String getEmail() {
         return email;
     }
 
-    public void setCorreo(String correo) {
+    public void setEmail(String correo) {
         this.email = correo;
     }
 

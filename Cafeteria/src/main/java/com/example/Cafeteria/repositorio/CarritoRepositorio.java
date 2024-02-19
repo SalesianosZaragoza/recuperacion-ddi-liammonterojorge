@@ -48,5 +48,6 @@ public class CarritoRepositorio {
         String sql = "SELECT * FROM PRODUCTO WHERE id IN (SELECT id_producto FROM CARRITO_PRODUCTO WHERE id_carrito = ?)";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Producto.class), carrito.getId());
     }
+
 }
 

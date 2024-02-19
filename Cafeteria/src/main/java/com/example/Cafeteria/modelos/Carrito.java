@@ -1,11 +1,15 @@
 package com.example.Cafeteria.modelos;
 
+
+
+
 public class Carrito {
     private int id;
     private double total;
+    
 
 
-    public Carrito(int id, double total) {
+    public Carrito(int id, double total ) {
         this.id = id;
         this.total = total;
     }

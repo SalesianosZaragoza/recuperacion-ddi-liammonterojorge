@@ -11,6 +11,6 @@ INSERT INTO Carrito (total) VALUES (500);
 INSERT INTO Carrito (total) VALUES (300);
 INSERT INTO Carrito (total) VALUES (200);
 
-INSERT INTO Usuario (nombre, email, contrasena) VALUES ('Liam', 'liam@gmail.com', '1234');
-INSERT INTO Usuario (nombre, email, contrasena) VALUES ('Montero', 'montero@gmail.com', '1234');
-INSERT INTO Usuario (nombre, email, contrasena) VALUES ('Jorge', 'jorge@gmail.com', '1234');
+INSERT INTO Usuario (nombre, apellido, email, contrasena) VALUES ('Liam','Ramiro', 'liam@gmail.com', '1234');
+INSERT INTO Usuario (nombre, apellido,  email, contrasena) VALUES ('Jesus','Montero', 'montero@gmail.com', '1234');
+INSERT INTO Usuario (nombre, apellido, email, contrasena) VALUES ('Jorge', 'Esteban', 'jorge@gmail.com', '1234');
