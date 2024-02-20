@@ -1,30 +1,40 @@
 package com.example.Cafeteria.modelos;
 
-
-
+import java.sql.Date;
 
 public class Carrito {
     private int id;
-    private double total;
+    private String estado;
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    private Date fecha;
+
     
 
 
-    public Carrito(int id, double total ) {
+    public Carrito(int id, String estado, Date fecha ) {
         this.id = id;
-        this.total = total;
+        this.estado = estado;
+        this.fecha = fecha;
     }
 
     public Carrito() {
     }
 
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
-    }
 
     public int getId() {
         return id;

@@ -23,8 +23,8 @@ public class UsuarioControlador {
 
     @RequestMapping("/listarUsuario")
     public String listaUsuario(Model model){
-        List<Usuario> lisatUser = usuarioRepositorio.getTodosUsuario();
-        model.addAttribute("listaUsuario", lisatUser);
+        List<Usuario> listaUser = usuarioRepositorio.getTodosUsuario();
+        model.addAttribute("listaUsuario", listaUser);
         return "listaUsuario";
 
     }

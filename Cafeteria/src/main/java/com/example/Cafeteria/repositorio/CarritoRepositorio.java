@@ -35,8 +35,8 @@ public class CarritoRepositorio {
     }
 
     public void actualizarCarrito(Carrito carrito){
-        String sql = "UPDATE carrito SET total = ? WHERE id = ?";
-        jdbcTemplate.update(sql, carrito.getTotal(), carrito.getId());
+        String sql = "UPDATE carrito SET estado = ? WHERE id = ?";
+        jdbcTemplate.update(sql, carrito.getEstado(), carrito.getId());
     }
 
     public void agregarProductoAlCarrito(Carrito carrito, Producto producto){

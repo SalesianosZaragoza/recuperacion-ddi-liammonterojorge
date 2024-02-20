@@ -13,7 +13,7 @@ public class CarritoRowMapper implements RowMapper<Carrito> {
         Carrito carrito = new Carrito();
 
         carrito.setId(rs.getInt("id"));
-        carrito.setTotal(rs.getDouble("total"));
+        carrito.setEstado(rs.getString("estado"));
 
         return carrito;
     }
