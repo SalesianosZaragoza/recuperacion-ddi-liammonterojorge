@@ -7,7 +7,9 @@ CREATE TABLE IF NOT EXISTS PRODUCTO (
 
 CREATE TABLE IF NOT EXISTS CARRITO (
                                        id INT AUTO_INCREMENT PRIMARY KEY,
-                                       total DOUBLE
+                                        estado VARCHAR(25),
+                                        --fecha actual
+                                         fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP 
 );
 
 CREATE TABLE IF NOT EXISTS CARRITO_PRODUCTO (
