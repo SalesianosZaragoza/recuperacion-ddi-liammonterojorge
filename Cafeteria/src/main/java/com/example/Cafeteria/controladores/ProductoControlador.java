@@ -5,6 +5,7 @@ import com.example.Cafeteria.repositorio.ProductoRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -69,6 +70,12 @@ public class ProductoControlador {
     public String actualizarProducto(Producto producto, Model model){
         productoRepositorio.actualizarProducto(producto);
         return listaProducto(model);
+    }
+
+    @GetMapping("/formProducto")
+    public String formProducto(Model model) {
+        model.addAttribute("nuevoProducto", new Producto());
+        return "formProducto";
     }
 
     public List<Producto> getTodosProducto(){

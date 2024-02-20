@@ -13,6 +13,7 @@
                 <span th:text="${producto.nombre}"></span> - <span th:text="${producto.precio}"></span>
             </option>
         </th:each>
+
     </select>
     
     <form id="formularioCarrito" th:action="@{/insertarCarrito}" th:object="${nuevoCarrito}" method="post">
