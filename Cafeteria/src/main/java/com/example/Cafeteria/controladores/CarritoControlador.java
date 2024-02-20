@@ -57,7 +57,6 @@ public class CarritoControlador {
         System.out.println("Producto " + producto.getNombre() + " agregado al carrito");
 
         // Actualiza el total del Carrito
-        carrito.setTotal(carrito.getTotal() + producto.getPrecio());
 
         // Guarda el Carrito actualizado
         carritoRepositorio.actualizarCarrito(carrito);

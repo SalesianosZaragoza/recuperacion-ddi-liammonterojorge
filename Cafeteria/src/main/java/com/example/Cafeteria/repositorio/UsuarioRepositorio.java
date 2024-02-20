@@ -1,5 +1,6 @@
 package com.example.Cafeteria.repositorio;
 
+import com.example.Cafeteria.modelos.Producto;
 import com.example.Cafeteria.modelos.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -24,4 +25,9 @@ public class UsuarioRepositorio {
         List<Usuario> listaUsuario = jdbcTemplate.query(query, new UsuarioRowMapper(), nombre, contrasena);
         return (listaUsuario.isEmpty())? null: listaUsuario.get(0);
     }
+     public void insertarUsuario(Usuario usuario){
+        String query = "INSERT INTO usuario (nombre, apellido, email, contrasena) VALUES (?, ?, ?, ?);";
+        jdbcTemplate.update(query, usuario.getNombre(), usuario.getApellido(), usuario.getEmail(), usuario.getContrasena());
+    }
+    
 }

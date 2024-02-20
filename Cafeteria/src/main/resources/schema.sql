@@ -21,6 +21,6 @@ CREATE TABLE IF NOT EXISTS USUARIO (
                                        id INT AUTO_INCREMENT PRIMARY KEY,
                                        nombre VARCHAR(25),
                                        apellido VARCHAR(25),
-                                       email VARCHAR(25),
+                                       email VARCHAR(50),
                                        contrasena VARCHAR(25)
 );
