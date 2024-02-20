@@ -1,6 +1,6 @@
 package com.example.Cafeteria.controladores;
 
-import com.example.Cafeteria.modelos.Usuario;
+import com.example.Cafeteria.modelos.*;
 import com.example.Cafeteria.repositorio.UsuarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
