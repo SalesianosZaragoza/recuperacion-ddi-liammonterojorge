@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <banner>
+        <h1>Cafeteria Manoli</h1>
+    </banner>
+    <meta charset="UTF-8">
+    <title>Lista Productos</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Imagen</th>
+        <th>Nombre Producto</th>
+        <th>Precio</th>
+        <th>Añadir al carrito</th>
+        <th>Eliminar</th>
+    </tr>
+
+    <tr th:each="producto : ${listaProducto}">
+        <td><img th:src="@{'/images/' + ${producto.imagen}}" width="100" height="100"></td>
+        <td th:text="${producto.nombre}"></td>
+        <td th:text="${producto.precio}"></td>
+        <td><a th:href="@{'/eliminarProducto/'+${prducto.id}}"><input type="button" value="ELIMINAR"></a></td>-->
+    </tr>
+</table>
+
+<a th:href="@{'formProducto'}"><input type="button" value="Agregar producto"></a>
+<a th:href="@{/}"><h3>Volver al índice</h3></a>
+</body>
+ <footer>
+        <p>&copy; 2024 Liam, Montero y Jorge</p>
+</footer>
+
+</html>

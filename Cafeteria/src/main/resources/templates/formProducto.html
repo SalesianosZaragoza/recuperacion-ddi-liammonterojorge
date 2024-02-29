@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <form th:action="@{/insertarProducto}" th:object="${nuevoProducto}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <h3>Nombre</h3>
+        <input type="text" th:field="*{nombre}" />
+        
+        <h3>Precio</h3>
+        <input type="number" step="any" th:field="*{precio}" />
+        <br>
+
+        <h3>Imagen</h3>
+        <input type="file" name="imagen" accept="image/*" />
+        <br>
+        <input type="submit" value="Enviar" />
+    </form>
+    <a th:href="@{/}"><h3>Volver al índice</h3></a>
+</body>
+</html>

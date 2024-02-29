@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+    <title>Formulario</title>
+</head>
+<body>
+    <select id="productos" name="productos" onchange="updateFormAction()">
+        <option value="">Seleccione un producto</option>
+        <th:each="producto : ${listaProducto}">
+            <option th:value="${producto.id}" th:label="${producto.nombre}">
+                <span th:text="${producto.nombre}"></span> - <span th:text="${producto.precio}"></span>
+            </option>
+        </th:each>
+
+    </select>
+    
+    <form id="formularioCarrito" th:action="@{/insertarCarrito}" th:object="${nuevoCarrito}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <h3>Estado</h3>
+        <input type="text" th:field="*{estado}" />
+        <input type="submit" value="Enviar" />
+    </form>
+   
+</body>
+</html>

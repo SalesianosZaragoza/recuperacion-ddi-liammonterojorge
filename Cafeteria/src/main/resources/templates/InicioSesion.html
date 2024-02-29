@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cafeteria Manoli</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div>
+    <a th:href="@{/InicioSesion}"> <!-- Cambio aquí -->
+        <button type="button" class="btn btn-primary">Inicio sesión</button>
+    </a>
+</div>
+
+<form th:action="@{/InicioSesion}" th:object="${usuario}" method="post">
+    
+    <h3>Nombre</h3>
+    <input type="text" th:field="*{nombre}" />
+
+    <h3>Contraseña</h3>
+    <input type="password" th:field="*{contrasena}" />
+    <br>
+
+    <input type="submit" value="Enviar" />
+</form>
+
+<a th:href="@{/}"><h3>Volver al índice</h3></a>
+
+<footer>
+    <p>&copy; 2024 Liam, Montero y Jorge</p>
+</footer>
+
+</body>
+
+</html>

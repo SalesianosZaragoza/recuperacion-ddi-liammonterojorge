@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(".add-to-cart").click(function(event){
+            event.preventDefault();
+            var idProducto = $(this).attr("data-id");
+            $.ajax({
+                url: "/insertarCarrito/" + idProducto,
+                type: "POST",
+                success: function(response){
+                    alert(response);
+                }
+            });
+        });
+    });
+</script>
+<head>
+    <banner>
+        <h1>Cafeteria Manoli</h1>
+    </banner>
+    <meta charset="UTF-8">
+    <title>Lista Productos</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div style="position: absolute; top: 0; right: 0;">
+    <a href="/verCarrito">
+        <button>Ver Carrito</button>
+    </a>
+</div>
+
+
+
+<table>
+    <tr>
+        <th>Imagen</th>
+        <th>Nombre Producto</th>
+        <th>Precio</th>
+        <th>Añadir al carrito</th>
+      
+    </tr>
+
+    <tr th:each="producto : ${listaProducto}">
+        <td><img th:src="@{'/images/' + ${producto.imagen}}" width="100" height="100"></td>
+        <td th:text="${producto.nombre}"></td>
+        <td th:text="${producto.precio}"></td>
+        <td><button class="add-to-cart" data-id="${producto.id}">Agregar al carrito</button></td>
+    </tr>
+</table>
+<a th:href="@{/}"><h3>Volver al índice</h3></a>
+</body>
+</html>
+

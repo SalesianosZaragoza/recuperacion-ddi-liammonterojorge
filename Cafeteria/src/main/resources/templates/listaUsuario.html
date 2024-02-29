@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<head>
+    <banner>
+        <h1>Cafeteria Manoli</h1>
+    </banner>
+    <meta charset="UTF-8">
+    <title>Lista Productos</title>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css">
+</head>
+<body>
+<div style="position: absolute; top: 0; right: 0;">
+    <a href="/verCarrito">
+        <button>Ver Carrito</button>
+    </a>
+</div>
+<table>
+    <tr>
+        <th>nombre</th>
+        <th>Apellido</th>
+        <th>Email</th>
+        <th>Eliminar</th>
+    </tr>
+
+    <tr th:each="usuario : ${listaUsuario}">
+        <td th:text="${usuario.nombre}"></td>
+        <td th:text="${usuario.apellido}"></td>
+        <td th:text="${usuario.email}"></td>
+    </tr>
+</table>
+<a th:href="@{/}"><h3>Volver al índice</h3></a>
+</body>
+</html>
+

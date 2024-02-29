@@ -1,0 +1,123 @@
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #1e1e1e; /* Fondo oscuro */
+    color: #707070; /* Texto en blanco */
+    font: bolder 1.2rem 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form input {
+    width: 90%;
+    height: 30px;
+    margin: 0.5rem;
+}
+
+.form button {
+    background: #5397ec;
+    cursor: pointer;
+    border-radius: 100px;
+}
+
+table {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #5397ec; /* Barra principal azul */
+    border-color: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Sombra constante para simular elevación */
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Transición para la sombra y la posición */
+    animation: floatAnimation 3s infinite alternate ease-in-out; /* Animación de flotar */
+}
+
+table:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Aumenta la sombra al pasar el ratón */
+    transform: translateY(0); /* Detiene la animación al pasar el ratón */
+    animation: none; /* Detiene la animación al pasar el ratón */
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    transition: transform 0.3s ease-in-out; /* Transición para el efecto de cambio de tamaño */
+}
+
+th:hover, td:hover {
+    transform: scale(1.05); /* Aumenta ligeramente al pasar el ratón sobre las celdas */
+}
+
+th {
+    background-color: #5397ec; /* Color de fondo azul oscuro para resaltar los títulos */
+    color: #ffffff;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f9fa; /* Fondo gris claro para las filas pares */
+}
+
+a {
+    text-decoration: none;
+    color: #5397ec; /* Enlace en tono de azul */
+    display: block;
+    margin-top: 10px;
+}
+
+h3 {
+    color: #5397ec; /* Títulos en tono de azul oscuro */
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    color: #f3f3f3;
+    margin-top: 20px;
+}
+
+button, input {
+    background-color: #1467a9; /* Botón en tono de azul oscuro */
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+banner {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    background-color: aliceblue;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-10px);
+    }
+}
+
